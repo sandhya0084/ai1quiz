@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI-Power Quiz Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card-glass p-4 w-100" style="max-width:600px">
+      <!-- Header -->
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <div class="logo">QZ</div>
+        <div>
+          <h4 class="mb-0">AI-Power Quiz Hub</h4>
+          <small class="muted">HTML • CSS • JavaScript</small>
+        </div>
+      </div>
+      <!-- Auth Section -->
+      <section id="sec-auth" class="section active">
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <div class="p-3 auth-panel">
+              <h5>Login</h5>
+              <input id="loginEmail" class="form-control mb-2" placeholder="Email">
+              <input id="loginPass" type="password" class="form-control mb-2" placeholder="Password">
+              <div class="d-flex gap-2">
+                <button id="btnLogin" class="btn btn-primary flex-grow-1">Login</button>
+                <button id="showRegisterBtn" class="btn btn-outline-light">Register</button>
+              </div>
+              <div id="loginMsg" class="muted-small mt-2"></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="p-3 auth-panel">
+              <h5>Create account</h5>
+              <input id="regName" class="form-control mb-2" placeholder="Full name">
+              <input id="regEmail" class="form-control mb-2" placeholder="Email">
+              <input id="regPass" type="password" class="form-control mb-2" placeholder="Password (min 4)">
+              <div class="d-flex gap-2">
+                <button id="btnRegister" class="btn btn-success flex-grow-1">Register</button>
+                <button id="showLoginBtn" class="btn btn-outline-light">Back</button>
+              </div>
+              <div id="regMsg" class="muted-small mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Selection Section -->
+      <section id="sec-category" class="section">
+        <h5 class="mb-3">Choose a Category</h5>
+        <div class="d-flex flex-column gap-2">
+          <button class="btn btn-outline-primary" onclick="showRules('HTML')">HTML</button>
+          <button class="btn btn-outline-success" onclick="showRules('CSS')">CSS</button>
+          <button class="btn btn-outline-warning" onclick="showRules('JavaScript')">JavaScript</button>
+          <button class="btn btn-outline-info" onclick="showRules('All')">All (Mixed)</button>
+        </div>
+      </section>
+
+      <!-- Quiz Section -->
+      <section id="sec-quiz" class="section">
+        <form id="quizForm">
+          <div id="quizQuestions"></div>
+          <button type="submit" class="btn btn-primary mt-3 w-100">Submit Quiz</button>
+        </form>
+      </section>
+      <!-- Result Section -->
+      <section id="sec-result" class="section">
+        <h4 class="text-center">Quiz Summary</h4>
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div class="muted-small">Total Time: <strong id="summaryTime">0s</strong></div>
+          <div class="muted-small">Score: <strong id="summaryScore">0</strong></div>
+        </div>
+        <div id="summaryList" class="mb-3" style="max-height:400px;overflow:auto;"></div>
+        <div class="d-flex gap-2 justify-content-center mt-3">
+          <button id="backDashBtn" class="btn btn-outline-light">Back to Login</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Rules Overlay -->
+  <div id="rulesOverlay" class="rules-full" style="display:none;">
+    <div class="rules-card zoom-in">
+      <h4>Rules & Regulations</h4>
+      <ul>
+        <li>You will get <strong>10 questions</strong> (or 30 for All) from the selected category.</li>
+        <li>Each question has <strong>15 seconds</strong> to answer.</li>
+        <li>Once you select an answer or time runs out, you cannot go back.</li>
+        <li>Your score and summary will be shown at the end.</li>
+      </ul>
+      <div class="d-flex justify-content-between align-items-center mt-3">
+        <div class="muted-small">Ready?</div>
+        <div>
+          <button id="rulesAccept" class="btn btn-primary">I Agree & Start</button>
+          <button id="rulesCancel" class="btn btn-outline-light">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
