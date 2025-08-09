@@ -1,0 +1,117 @@
+:root {
+  --bg: #071026;
+  --muted: #9aa7bb;
+  --card-radius: 12px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, Arial;
+  color: #e6eef8;
+  background: linear-gradient(180deg, #071026, #0b1530);
+}
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.card-glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--card-radius);
+  box-shadow: 0 18px 50px rgba(2,6,23,0.6);
+  padding: 20px;
+  width: 100%;
+}
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(90deg,#6d28d9,#06b6d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.muted-small {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.section { display: none; }
+.section.active { display: block; }
+.auth-panel {
+  background: rgba(255,255,255,0.02);
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.question-block {
+  margin-bottom: 18px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+}
+.option-label {
+  display: block;
+  margin-bottom: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.option-label.correct {
+  background: #193e2e;
+  color: #4ade80;
+  border-color: #4ade80;
+}
+.option-label.wrong {
+  background: #3e1a1a;
+  color: #fb7185;
+  border-color: #fb7185;
+}
+.option-label.user {
+  font-weight: bold;
+  border-style: dashed;
+}
+.btn {
+  background: #06b6d4;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn:active {
+  background: #6d28d9;
+}
+.rules-full {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(2,6,23,0.7);
+  z-index: 100;
+}
+.rules-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.zoom-in {
+  animation: zoomIn .42s ease both;
+}
+@keyframes zoomIn {
+  from { transform: scale(.94); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@media (max-width: 768px) {
+  .card-glass { padding: 10px; }
+  .logo { width: 36px; height: 36px; font-size: 1.1rem; }
+}
